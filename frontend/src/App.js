@@ -47,20 +47,15 @@ class App extends Component {
                   {!this.state.token && <Redirect from="/bookings" to="/auth" exact/>}
                   {!this.state.token && <Redirect from="/availability" to="/auth" exact/>}
 
-                  {this.state.token && <Redirect from="/" to="/availability" exact/>}
+                  
                   {this.state.token && this.state.isDoctor && <Redirect from="/auth" to="/availability" exact/>}
                   {this.state.token && !this.state.isDoctor && <Redirect from="/auth" to="/bookings" exact/>}
 
-
-                  {/* INCOMPLETE!! some code for booking should be show or not for !login user */}
-                  {/* {!this.state.token && <Redirect from="/" to="/auth" exact/>}
-                  {this.state.token && <Redirect from="/" to="/events" exact/>}
-                  {this.state.token && <Redirect from="/auth" to="/events" exact/>} */}
                   <Route path="/" exact component ={HomePage} />
                   <Route path="/about" component ={AboutPage} />
-                  {!this.state.token && (<Route path="/auth" component ={AuthPage} />)}
-                  <Route path="/availability" component ={AvailabilityPage} />
                   <Route path="/insurance" component ={InsurancePage} />
+                  <Route path="/availability" component ={AvailabilityPage} />
+                  {!this.state.token && (<Route path="/auth" component ={AuthPage} />)}
                   {this.state.token && (<Route path="/bookings" component ={BookingsPage} />)}
                   {!this.state.token && <Redirect to="/auth" exact/>}
               </Switch>

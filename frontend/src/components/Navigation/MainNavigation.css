@@ -49,6 +49,7 @@
 .main-navigation_items a,
 .main-navigation_items button {
     text-decoration: none;
+    text-transform: uppercase;
     color: gray;
     font: inherit;
     border: none;

@@ -16,7 +16,7 @@ const mainNavigation = props => (
                         <nav className ="main-navigation_items">
                             <ul id="nav_menu">
                                 <li>
-                                    <NavLink to="/">Home</NavLink>
+                                     <NavLink to="/">Home</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/about">About Us</NavLink>
@@ -25,31 +25,30 @@ const mainNavigation = props => (
                                     <NavLink to="/insurance">Insurance</NavLink>
                                 </li>
                                  {context.token && !context.isDoctor && (
-                            <li>
-                                <NavLink to="/bookings">Bookings</NavLink>
-                            </li>
-                            )}
-                            {context.token && (
-                            <li>
-                                <NavLink to="/availability">Availability</NavLink>
-                            </li>
-                            )}
-                            {!context.token && (
-                            <li>
-                                <NavLink to="/auth">Authenticate</NavLink>
-                            </li>
-                            )}
-                            {context.token && (
-                            <li>
-                                <button onClick={context.logout}>Logout</button>
-                            </li>
-                          
+                                 <li>
+                                    <NavLink to="/bookings">Bookings</NavLink>
+                                </li>
+                                    )}
+                                {context.token && (
+                                <li>
+                                    <NavLink to="/availability">Availability</NavLink>
+                                </li>
+                                )}
+                                {!context.token && (
+                                <li>
+                                    <NavLink to="/auth">Authenticate</NavLink>
+                                </li>
+                                )}
+                                {context.token && (
+                                <li>
+                                    <button onClick={context.logout}>Logout</button>
+                                </li>
+                                )}
                             </ul>
-                        </nav>
-
-        </header>
-            )
-        }}
+                             </nav>
+                        </header>
+                        )
+                        }}
         
     </AuthContext.Consumer>
  

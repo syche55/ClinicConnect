@@ -13,21 +13,21 @@ function Sections() {
               text='Chiropractic'
               label='Book Now'
               detail='$80'
-              path='/booking'
+              path='/availability'
             />
             <CardItem
               src='https://i.ibb.co/SdKRBRB/dfgsdf.png'
               text='TCM physiotherapy'
               label='Book Now'
               detail='$60'
-              path='/booking'
+              path='/availability'
             />
             <CardItem
               src='https://i.ibb.co/SdKRBRB/dfgsdf.png'
               text='Recovery physiotherapy'
               label='Book Now'
               detail='$45'
-              path='/booking'
+              path='/availability'
             />
           </ul>
         </div>

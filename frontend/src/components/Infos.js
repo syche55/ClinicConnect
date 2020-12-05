@@ -20,7 +20,7 @@ function Infos() {
               text='Spcialist Doctors'
               label='Read More'
               detail='Want to talk to a specilist? Find out the doctor suit you!'
-              path='/services'
+              path='/availability'
             />
           </ul>
         </div>
