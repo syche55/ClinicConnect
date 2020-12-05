@@ -43,6 +43,7 @@ class App extends Component {
             <main className="main-content">
                 <Switch>
                   {!this.state.token && <Redirect from="/bookings" to="/auth" exact/>}
+                  {!this.state.token && <Redirect from="/availability" to="/auth" exact/>}
 
                   {this.state.token && <Redirect from="/" to="/availability" exact/>}
                   {this.state.token && this.state.isDoctor && <Redirect from="/auth" to="/availability" exact/>}
