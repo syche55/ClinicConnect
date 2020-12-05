@@ -4,6 +4,7 @@ import { NavLink} from 'react-router-dom';
 import AuthContext from  '../../context/auth-context';
 import './MainNavigation.css';
 
+// function components
 const mainNavigation = props => (
     <AuthContext.Consumer>
         {(context) => {
@@ -13,23 +14,37 @@ const mainNavigation = props => (
                         <h1>ClinicConnect</h1>
                     </div>
                     <nav className ="main-navigation_items">
-                        <ul>
+                        <ul >
                             <li>
                                 <NavLink to="/about">About</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/events">Events</NavLink>
-                            </li>
-                            {context.token && (<li>
-                                <NavLink to="/bookings">Bookings</NavLink>
-                            </li>)}
-                            <li>
                                 <NavLink to="/insurance">Insurance</NavLink>
                             </li>
-                            {!context.token && (<li>
+                            {context.token && !context.isDoctor && (
+                            <li>
+                                <NavLink to="/bookings">Bookings</NavLink>
+                            </li>
+                            )}
+                            {context.token && (
+                            <li>
+                                <NavLink to="/availability">Availability</NavLink>
+                            </li>
+                            )}
+                            {!context.token && (
+                            <li>
                                 <NavLink to="/auth">Authenticate</NavLink>
-                            </li>)}
-                </ul>
+                            </li>
+                            )}
+                            {context.token && (
+                            <li>
+                                <button onClick={context.logout}>Logout</button>
+                            </li>
+                            )}
+                        </ul>
+                            
+                        
+                            
             </nav>
         </header>
             )

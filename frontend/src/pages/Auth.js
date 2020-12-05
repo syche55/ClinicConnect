@@ -14,6 +14,7 @@ class AuthPage extends Component{
         super(props);
         this.emailEl = React.createRef();
         this.passwordEl = React.createRef();
+        this.isDoctorEl = React.createRef();
     }
 
     switchModeHandler = () =>{
@@ -22,11 +23,16 @@ class AuthPage extends Component{
         })
     }
 
-    submitHandler = event => {
-        event.preventDefault();
+    switchModeDoctorHandler = ()=>{
+        this.setState(prevState => {
+            return {isDoctor: !prevState.isDoctor};
+        })
+    }
+
+    submitHandler = submit => {
+        submit.preventDefault();
         const email = this.emailEl.current.value;
         const password =  this.passwordEl.current.value;
-
         if(email.trim().length === 0 || password.trim().length === 0){
             return;
         }
@@ -36,6 +42,7 @@ class AuthPage extends Component{
                 query{
                     login(email: "${email}", password: "${password}"){
                         userId
+                        isDoctor
                         token
                         tokenExpiration
                     }
@@ -44,16 +51,21 @@ class AuthPage extends Component{
         };
 
         if(!this.state.isLogin){
+            const isDoctor = this.isDoctorEl.current.checked;
             requestBody = {
                 query: `
                     mutation{
-                        createUser(userInput: {email: "${email}", password: "${password}"}){
+                        createUser(userInput: {email: "${email}", password: "${password}", isDoctor: ${isDoctor}}){
                             _id
                             email
+                            password
+                            isDoctor
+                            token
                         }
                     }
                 `
             };
+            console.log(JSON.stringify(requestBody));
         }
 
 
@@ -65,17 +77,29 @@ class AuthPage extends Component{
             }
         }).then(res =>{
             if(res.status !== 200 && res.status !== 201){
-                throw new Error('Failed!');
+                throw new Error('Graphql query Failed!');
             }
             return res.json();
         })
         .then(resData =>{
-            if(resData.data.login.token){
-                this.context.login(
-                    resData.data.login.token, 
-                    resData.data.login.userId, 
-                    resData.data.login.tokenExpiration
-                );
+            if (this.state.isLogin) {
+                if(resData.data.login.token){
+                    this.context.login(
+                        resData.data.login.userId,
+                        resData.data.login.isDoctor, 
+                        resData.data.login.token, 
+                        resData.data.login.tokenExpiration
+                    );
+                }
+            } else {
+                if(resData.data.createUser.token){
+                    this.context.login(
+                        resData.data.createUser.userId,
+                        resData.data.createUser.isDoctor, 
+                        resData.data.createUser.token, 
+                        resData.data.createUser.tokenExpiration
+                    );
+                }
             }
         })
         .catch(err =>{
@@ -95,10 +119,17 @@ class AuthPage extends Component{
                     <label htmlFor="password">Password</label>
                     <input type="password" id = "password" ref = {this.passwordEl}/>
                 </div>
+                { this.state.isLogin ?
+                null
+                : <div className= "form-actions">
+                    
+                <label htmlFor="isDoctor">Are you a doctor?</label>
+                <input type="checkbox" id = "checkbox" ref = {this.isDoctorEl} onClick = {this.switchModeDoctorHandler}/>
+            </div>}
                 <div className="form-actions">
-                    <button type="submit">submit</button>
+                    <button type="submit">Submit</button>
                     <button type="button" onClick = {this.switchModeHandler}>
-                        Switch to {this.state.isLogin ? 'Signup' : 'Login'}
+                        {this.state.isLogin ? 'No account yet?' : 'Already have an account?'} Click here to {this.state.isLogin ? 'Signup!' : 'Login!'}
                     </button>
                 </div>
             </form>

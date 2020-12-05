@@ -27,7 +27,7 @@ app.use(isAuth);
 app.use(
     '/graphql',
     graphqlHTTP({
-        // when you call createEvent(), you return an event
+        // when you call createAvailability(), you return an availability
         schema: graphQlSchema,
         rootValue: graphQlResolvers,
         graphiql: true

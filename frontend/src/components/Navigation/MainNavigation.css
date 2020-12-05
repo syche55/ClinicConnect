@@ -8,10 +8,13 @@
     padding: 0 1rem;
     display: flex;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .main-navigation_logo h1{
     margin: 0;
+    color: white;
     font-size: 1.5rem;
 }
 
@@ -29,13 +32,22 @@
     margin: 0 1rem;
 }
 
-.main-navigation_items a{
+.main-navigation_items a,
+.main-navigation_items button {
     text-decoration: none;
     color: gray;
+    font: inherit;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .main-navigation_items a:hover,
+.main-navigation_items button:hover,
 .main-navigation_items a:active,
-.main-navigation_items a.active{
+.main-navigation_items button:active
+.main-navigation_items a.active
+.main-navigation_items button.active {
     color: #9155A7;
 }
+

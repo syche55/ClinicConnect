@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 
+
 class BookingsPage extends Component{
+    
     render(){
-        return <h1>
+        return <React.Fragment>
+        <h1>
             The Bookings Page
-        </h1>;
+        </h1>
+        
+
+        </React.Fragment>;
+        
     }
 }
 
