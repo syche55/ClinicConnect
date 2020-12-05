@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { BrowserRouter, Route, Redirect, Switch} from 'react-router-dom';
 
 
+import HomePage from './pages/Home';
 import AuthPage from './pages/Auth';
 import AboutPage from './pages/About'
 import BookingsPage from './pages/Bookings';
@@ -41,10 +42,11 @@ class App extends Component {
           <MainNavigation />
             <main className="main-content">
                 <Switch>
-                  {!this.state.token && <Redirect from="/" to="/auth" exact/>}
+                  {/* INCOMPLETE!! some code for booking should be show or not for !login user */}
+                  {/* {!this.state.token && <Redirect from="/" to="/auth" exact/>}
                   {this.state.token && <Redirect from="/" to="/events" exact/>}
-                  {this.state.token && <Redirect from="/auth" to="/events" exact/>}
-
+                  {this.state.token && <Redirect from="/auth" to="/events" exact/>} */}
+                  <Route path="/" exact component ={HomePage} />
                   <Route path="/about" component ={AboutPage} />
                   {!this.state.token && (<Route path="/auth" component ={AuthPage} />)}
                   <Route path="/events" component ={EventssPage} />
