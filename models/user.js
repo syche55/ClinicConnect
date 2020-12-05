@@ -11,11 +11,15 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    createdEvents: [
+    isDoctor :{
+        type: Boolean,
+        required: true
+    },
+    bookedAvailability: [
         {
             type: Schema.Types.ObjectId,
             // set relation to mongoose
-            ref: 'Event'
+            ref: 'Booking'
         }
     ]
 });

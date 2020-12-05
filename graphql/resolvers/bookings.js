@@ -1,7 +1,7 @@
 
 const Booking = require('../../models/booking');
-const Event = require('../../models/event')
-const { transformBooking, transformEvent } = require('./merge');
+const Availability = require('../../models/availability')
+const { transformBooking, transformAvailability } = require('./merge');
 
 
 module.exports = {
@@ -20,15 +20,15 @@ module.exports = {
         }
     },
    
-    bookEvent: async (args, req) => {
+    bookAvailability: async (args, req) => {
         if(!req.isAuth){
             throw new Error('Unauthenticated!')
         }
-        const fetchedEvent = await Event.findOne({_id: args.eventId});
+        const fetchedAvailability = await Availability.findOne({_id: args.availabilityId});
         // fill user
         const booking = new Booking({
             user: req.userId,
-            event: fetchedEvent
+            availability: fetchedAvailability
         });
         const result = await booking.save();
         return transformBooking(result);
@@ -39,10 +39,10 @@ module.exports = {
             throw new Error('Unauthenticated!')
         }
         try {
-            const booking = await Booking.findById(args.bookingId).populate('event');
-            const event = transformEvent(booking.event);
+            const booking = await Booking.findById(args.bookingId).populate('availability');
+            const availability = transformAvailability(booking.availability);
             await Booking.deleteOne({_id: args.bookingId});
-            return event;
+            return availability;
         } catch(err) {
             throw err;
         }

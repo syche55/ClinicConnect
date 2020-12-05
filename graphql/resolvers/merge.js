@@ -1,11 +1,11 @@
-const Event = require('../../models/event');
+const Availability = require('../../models/availability');
 const User = require('../../models/user');
 const { dateToString } = require('../../helpers/date');
-const events = async eventIds => {
+const availability = async availabilityIds => {
     try {
-        const events = await Event.find({ _id: { $in: eventIds } });
-        return events.map(event => {
-            return transformEvent(event);
+        const availability = await Availability.find({ _id: { $in: availabilityIds } });
+        return availability.map(availableTime => {
+            return transformAvailability(availableTime);
         });
         
     } catch (err) {
@@ -13,10 +13,10 @@ const events = async eventIds => {
     }
 };
 
-const singleEvent = async eventId => {
+const singleAvalableTime = async availabilityId => {
     try {
-        const event = await Event.findById(eventId);
-        return transformEvent(event);
+        const singleAvalableTime = await Availability.findById(availabilityId);
+        return transformAvailability(singleAvalableTime);
     } catch (err) {
         throw err;
     }
@@ -28,7 +28,7 @@ const user = async userId => {
             return { 
                 ...user._doc, 
                 _id: user.id,
-                createdEvents: events.bind(this, user._doc.createdEvents )
+                bookedAvailability: availability.bind(this, user._doc.bookedAvailability )
             };
         } catch (err) {
             console.log(err);
@@ -36,12 +36,11 @@ const user = async userId => {
         }
 };
 
-const transformEvent = event => {
+const transformAvailability = availableTime => {
     return {
-        ...event._doc,
-        _id: event.id,
-        date: dateToString(event._doc.date),
-        creator: user.bind(this, event.creator)
+        ...availableTime._doc,
+        _id: availableTime.id,
+        date: dateToString(availableTime._doc.date)
     };
 };
 
@@ -50,15 +49,11 @@ const transformBooking = booking => {
         ...booking._doc, 
         _id: booking.id, 
         user: user.bind(this, booking._doc.user),
-        event: singleEvent.bind(this, booking._doc.event),
+        availability: singleAvalableTime.bind(this, booking._doc.availability),
         createdAt: dateToString(booking._doc.createdAt), 
         updatedAt: dateToString(booking._doc.updatedAt)
     }
 };
 
 exports.transformBooking = transformBooking;
-exports.transformEvent = transformEvent;
-
-// exports.user = user;
-// exports.events = events;
-// exports.singleEvent = singleEvent;
+exports.transformAvailability = transformAvailability;

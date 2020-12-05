@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const eventSchema = new Schema({
+const availabilitySchema = new Schema({
             title: {
                 type: String,
                 required: true
@@ -21,10 +21,10 @@ const eventSchema = new Schema({
                 type: Date,
                 required: true
             },
-            creator: {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
+            booked: {
+                type: Boolean,
+                required: false
             }
 });
 
-module.exports = mongoose.model('Event', eventSchema);
+module.exports = mongoose.model('Availability', availabilitySchema);

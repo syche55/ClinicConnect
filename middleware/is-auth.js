@@ -7,8 +7,8 @@ module.exports = (req, res, next) =>{
         req.isAuth =  false;
         return next();
     }
-    const tokrn = authHeader.split(' ')[1]; //eg: Bear dfafasf
-    if(!tokrn || token === ''){
+    const token = authHeader.split(' ')[1]; //eg: Bear dfafasf
+    if(!token || token === ''){
         req.isAuth = false;
         return next();
     }

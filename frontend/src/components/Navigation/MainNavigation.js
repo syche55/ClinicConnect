@@ -4,6 +4,7 @@ import { NavLink} from 'react-router-dom';
 import AuthContext from  '../../context/auth-context';
 import './MainNavigation.css';
 
+// function components
 const mainNavigation = props => (
     <AuthContext.Consumer>
         {(context) => {
@@ -23,17 +24,29 @@ const mainNavigation = props => (
                                 <li>
                                     <NavLink to="/insurance">Insurance</NavLink>
                                 </li>
-                                <li>
-                                    <NavLink to="/events">Events</NavLink>
-                                </li>
-                                {context.token && (<li>
-                                    <NavLink to="/bookings">Bookings</NavLink>
-                                </li>)}
-                                {!context.token && (<li>
-                                    <NavLink to="/auth">Authenticate</NavLink>
-                                </li>)}
+                                 {context.token && !context.isDoctor && (
+                            <li>
+                                <NavLink to="/bookings">Bookings</NavLink>
+                            </li>
+                            )}
+                            {context.token && (
+                            <li>
+                                <NavLink to="/availability">Availability</NavLink>
+                            </li>
+                            )}
+                            {!context.token && (
+                            <li>
+                                <NavLink to="/auth">Authenticate</NavLink>
+                            </li>
+                            )}
+                            {context.token && (
+                            <li>
+                                <button onClick={context.logout}>Logout</button>
+                            </li>
+                          
                             </ul>
                         </nav>
+
         </header>
             )
         }}
