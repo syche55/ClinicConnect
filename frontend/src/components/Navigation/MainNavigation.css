@@ -1,18 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
 .main-navigation{
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 3.5rem;
-    background: #6DCCA3;
-    padding: 0 1rem;
-    display: flex;
+    background: #2F2E2E;
+    padding: 0.3rem 0.7rem;
+    display: inline-flex;
     align-items: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+    
 }
 
 .main-navigation_logo h1{
     margin: 0;
     font-size: 1.5rem;
+    margin-left: 5rem;
+    margin-right: auto;
+    font-family: 'Montserrat';
 }
 
 .main-navigation_items{
@@ -21,21 +35,24 @@
 
 .main-navigation_items ul{
     display: flex;
-    padding: 0;
     list-style: none;
     margin: 0;
+    font-family: 'Montserrat';
 }
+
 .main-navigation_items li{
-    margin: 0 1rem;
+    margin: 0 2rem;
 }
 
 .main-navigation_items a{
     text-decoration: none;
     color: gray;
+    font-family: 'Montserrat';
 }
 
 .main-navigation_items a:hover,
 .main-navigation_items a:active,
 .main-navigation_items a.active{
-    color: #9155A7;
+    color:#6DCCA3;
+    opacity:0.75;
 }
