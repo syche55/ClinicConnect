@@ -1,3 +1,14 @@
+h2 {
+    margin-top: 80px;
+    color: teal;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+}
+
 .events-control {
     text-align: center;
     border: 2px solid #9155A7;
@@ -6,3 +17,10 @@
     width: 30rem;
     max-width: 80%
 }
+
+.modal__header {
+    height: 60px;
+}
+
+
+

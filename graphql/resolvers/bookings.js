@@ -2,6 +2,7 @@
 const Booking = require('../../models/booking');
 const Availability = require('../../models/availability')
 const { transformBooking, transformAvailability } = require('./merge');
+const user = require('../../models/user');
 
 
 module.exports = {
@@ -21,13 +22,14 @@ module.exports = {
     },
    
     bookAvailability: async (args, req) => {
-        if(!req.isAuth){
-            throw new Error('Unauthenticated!')
-        }
+        // if(!req.isAuth){
+        //     throw new Error('Unauthenticated!')
+        // }
         const fetchedAvailability = await Availability.findOne({_id: args.availabilityId});
+        const fetchedUser = await user.findOne({_id: args.userId});
         // fill user
         const booking = new Booking({
-            user: req.userId,
+            user: fetchedUser,
             availability: fetchedAvailability
         });
         const result = await booking.save();

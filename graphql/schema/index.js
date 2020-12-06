@@ -40,6 +40,7 @@ input AvailabilityInput {
     date: String!
 }
 
+
 input UserInput {
     email: String!
     password: String!
@@ -56,7 +57,7 @@ type RootQuery {
 type RootMutation {
     createAvailability(availabilityInput: AvailabilityInput): Availability
     createUser(userInput: UserInput): User
-    bookAvailability(availabilityId: ID!): Booking!
+    bookAvailability(availabilityId:ID!, userId:ID!): Booking!
     cancelBooking(bookingId: ID!): Availability!
 }
 
