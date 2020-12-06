@@ -16,7 +16,7 @@ const mainNavigation = props => (
                         <nav className ="main-navigation_items">
                             <ul id="nav_menu">
                                 <li>
-                                     <NavLink to="/">Home</NavLink>
+                                     <NavLink exact to="/">Home</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/about">About Us</NavLink>

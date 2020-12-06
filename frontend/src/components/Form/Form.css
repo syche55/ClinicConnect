@@ -1,14 +1,14 @@
+
 .wrapper {
   height: 50vh;
   width: 100%;
-  margin-top: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fff;
 }
-  
+
 .form-wrapper {
   width: 400px;
   display: flex;
@@ -33,7 +33,7 @@ h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-  
+
 label {
   font-size: 0.8em;
   margin-bottom: 0.25em;
@@ -54,6 +54,16 @@ input::placeholder {
   color: #999;
 }
 
+input.error {
+  border: 1px solid red;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.75em;
+  display: relative;
+}
+
 .firstName {
   margin-right: 1%;
 }
@@ -71,19 +81,13 @@ input::placeholder {
   margin-bottom: 15px;
 }
 
-#checkbox{
-  margin: 0 10px;
-  display: inline;
-}
-
 .firstName,
 .lastName {
   width: 49%;
 }
 
 .email,
-.password,
-.doctor {
+.password {
   width: 100%;
 }
 
@@ -97,7 +101,7 @@ input::placeholder {
 .createAccount button {
   background-color: #6DCCA3;
   color: #fff;
-  border: 2px solid #0DB26B;
+  border: 2px solid #fff;
   width: 100%;
   margin-top: 1em;
   padding: 8px 0px;
@@ -105,13 +109,12 @@ input::placeholder {
   font-weight: lighter;
   letter-spacing: 1px;
   margin-bottom: 0.25em;
-  border-radius: 5px;
 }
 
 .createAccount button:hover {
-  color: #6DCCA3;
+  color: #519e8a;
   background-color: #fff;
-  border: 2px solid #6DCCA3;
+  border: 2px solid #519e8a;
 }
 
 .createAccount small {

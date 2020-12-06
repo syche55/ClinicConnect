@@ -28,13 +28,24 @@
       'Lucida Sans', Arial, sans-serif;
 }
   
-.header-btns {
-    margin-top: 32px;
-}
+.header-btn button {
+    background-color: #6DCCA3;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 100%;
+    margin: 1em;
+    padding: 8px 16px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    border-radius: 5px;
+  }
   
-.header-btns .btn {
-    margin: 6px;
-}
+  .header-btn button:hover {
+    color: #519e8a;
+    background-color: #fff;
+    border: 2px solid #519e8a;
+  }
   
 .fa-play-circle {
     margin-left: 4px;

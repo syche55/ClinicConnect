@@ -11,9 +11,10 @@
   background: #fff;
 }
 
+
 .btn--outline {
-  color: #fff;
-  background: #fff;
+  color: #fff !important;
+  background: #fff !important;
   margin: 1rem;
   border-radius: 5px;
   padding: 8px 20px;
@@ -33,6 +34,7 @@
 .btn--large {
   padding: 12px 26px;
   font-size: 20px;
+  color: #fff !important;
 }
 
 .btn--small:hover,
