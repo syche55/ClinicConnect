@@ -1,6 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../App.css';
-import { Button } from './Button';
 import './Header.css';
 
 
@@ -9,14 +9,11 @@ function Header() {
     <div className='header-container'>
         <h1>Clinic Connect</h1>
         <p>Schedule Your appointment Online</p>
-        <Button
-            className='btns'
-            buttonStyle='btn--outline'
-            buttonSize='btn--large'
-            path='/auth'
-            >
-            GET STARTED
-            </Button>
+        <div className="header-btn">
+        <Link to='/auth'>
+          <button type="button" >GET STARTED</button>
+          </Link>
+        </div>
       </div>
   );
 }

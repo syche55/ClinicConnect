@@ -12,6 +12,8 @@ class AuthPage extends Component{
 
     constructor(props){
         super(props);
+        this.firstNameEl = React.createRef();
+        this.lastNameEl = React.createRef();
         this.emailEl = React.createRef();
         this.passwordEl = React.createRef();
         this.isDoctorEl = React.createRef();
@@ -31,6 +33,8 @@ class AuthPage extends Component{
 
     submitHandler = submit => {
         submit.preventDefault();
+        const firstName = this.firstNameEl.current.value;
+        const lastName = this.lastNameEl.current.value;
         const email = this.emailEl.current.value;
         const password =  this.passwordEl.current.value;
         if(email.trim().length === 0 || password.trim().length === 0){
@@ -55,11 +59,13 @@ class AuthPage extends Component{
             requestBody = {
                 query: `
                     mutation{
-                        createUser(userInput: {email: "${email}", password: "${password}", isDoctor: ${isDoctor}}){
+                        createUser(userInput: {email: "${email}", password: "${password}", isDoctor: ${isDoctor}, , firstName:"${firstName}", lastName:"${lastName}"}){
                             _id
                             email
                             password
                             isDoctor
+                            firstName
+                            lastName
                             token
                         }
                     }
@@ -94,6 +100,7 @@ class AuthPage extends Component{
             } else {
                 if(resData.data.createUser.token){
                     this.context.login(
+                        // can not add name here - Auth Data
                         resData.data.createUser.userId,
                         resData.data.createUser.isDoctor, 
                         resData.data.createUser.token, 
@@ -110,29 +117,64 @@ class AuthPage extends Component{
 
     render(){
         return (
-            <form className="auth-form" onSubmit = {this.submitHandler}>
-                <div className= "form-control">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id = "email" ref = {this.emailEl} />
-                </div>
-                <div className= "form-control">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id = "password" ref = {this.passwordEl}/>
-                </div>
-                { this.state.isLogin ?
-                null
-                : <div className= "form-actions">
-                    
-                <label htmlFor="isDoctor">Are you a doctor?</label>
-                <input type="checkbox" id = "checkbox" ref = {this.isDoctorEl} onClick = {this.switchModeDoctorHandler}/>
-            </div>}
-                <div className="form-actions">
+            <div className="wrapper">
+                <div className="form-wrapper">
+                    <h1>Sign Up / Login</h1>
+                    <form className="auth-form" onSubmit = {this.submitHandler}>
+                    <div className="firstName">
+                        <label htmlFor="firstName">First Name</label>
+                        <input
+                            placeholder="First Name"
+                            type="text"
+                            name="firstName"
+                            id="firstname"
+                            ref = {this.firstNameEl}
+                        />
+                    </div>
+                    <div className="lastName">
+                        <label htmlFor="lastName">Last Name</label>
+                        <input
+                            placeholder="Last Name"
+                            type="text"
+                            name="lastName"
+                            id = "lastName"
+                            ref = {this.lastNameEl}
+                        />
+                    </div>
+                    <div className="email">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            placeholder="Email"
+                            type="email"
+                            name="email"
+                            id = "email"
+                            ref = {this.emailEl}
+                        />
+                    </div>
+                    <div className="password">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            placeholder="Password"
+                            type="password"
+                            name="password"
+                            id="password"
+                            ref = {this.passwordEl}
+                        />
+                    </div>
+                    {this.state.isLogin ? null : <div className= "isDoctor">
+                        <label htmlFor="isDoctor">Are you a doctor?</label>
+                        <input type="checkbox" id = "checkbox" ref = {this.isDoctorEl} onClick = {this.switchModeDoctorHandler}/>
+                    </div>}
+
+                    <div className="createAccount">
                     <button type="submit">Submit</button>
                     <button type="button" onClick = {this.switchModeHandler}>
                         {this.state.isLogin ? 'No account yet?' : 'Already have an account?'} Click here to {this.state.isLogin ? 'Signup!' : 'Login!'}
                     </button>
+                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         );
     }
 }

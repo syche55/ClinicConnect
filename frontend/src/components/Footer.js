@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from './Button';
 
 
 function Footer() {
@@ -24,14 +23,15 @@ function Footer() {
               type='text'
               placeholder='Your Request'
             />
-            <Button buttonStyle='btn--outline'>Contact  Us</Button>
+            <div className="header-btn">
+                <button type="button" type="submit">Contact  Us</button>
+            </div>
           </form>
         </div>
         <div className='rights-inline'>
           <small className='phone'>Tel: 123-456-7890</small>
         <small className='website-rights'>ClinicConnect © 2020 </small>
         </div>
-        
       </section>
     </div>
   );
