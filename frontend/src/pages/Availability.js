@@ -8,6 +8,7 @@ class AvailabilityPage extends Component {
   state = {
     creating: false,
     availabilitys: [],
+    testing: false,
   };
 
   static contextType = AuthContext;
@@ -86,6 +87,11 @@ class AvailabilityPage extends Component {
     this.setState({ creating: false });
   };
 
+  click = (str) => {
+    // this.setState({ testing: false });
+    window.alert("mnmnn");
+  };
+
   fetchAvailability() {
     const requestBody = {
       query: `
@@ -117,6 +123,7 @@ class AvailabilityPage extends Component {
         return res.json();
       })
       .then((resData) => {
+        console.log(resData);
         const availabilitys = resData.data.availability;
         this.setState({ availabilitys: availabilitys });
       })
@@ -129,7 +136,7 @@ class AvailabilityPage extends Component {
     const availabilityList = this.state.availabilitys.map((availability) => {
       return (
         <li key={availability.__id} className="events__list-item">
-          {availability.title}
+          {availability.title + " " + availability.date}
         </li>
       );
     });
@@ -180,7 +187,11 @@ class AvailabilityPage extends Component {
             Create an Availability
           </button>
         </div>
-        <ul className="events__list">{availabilityList}</ul>
+        <ul className="events__list">
+          {availabilityList.map((availability, index) => (
+            <li onClick={this.click.bind(this, "ajja")}>{availability}</li>
+          ))}
+        </ul>
       </React.Fragment>
     );
   }
