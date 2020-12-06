@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Box from '../components/Box';
 import Sections from '../components/Sections';
 import './About.css';
+import Form from '../components/Form/Form';
 
 
 function AboutPage() {
@@ -11,10 +12,10 @@ function AboutPage() {
     <>
 
     <Box text='About Us'/>
-    <h1 className='insurance_title'>About Clinic:</h1>
-    <p className='insurance_detail'>Whether you’re considering insurance through your employer or purchasing coverage on your own, we can help guide you through your different options so you can get the coverage you need.</p>
+    <h1 className='insurance_title'>Providing you with the best doctors for the best care</h1>
     <Sections />
-    <p className='insurance_detail'>Not covered by any of these plans? Contact us and we will find the best solution to suit you. </p>
+    <Box text='Contact Us'/>
+    <Form />
       <Footer />
     </>
   );

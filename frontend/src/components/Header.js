@@ -9,8 +9,7 @@ function Header() {
     <div className='header-container'>
         <h1>Clinic Connect</h1>
         <p>Schedule Your appointment Online</p>
-        <div className='header-btns'>
-            <Button
+        <Button
             className='btns'
             buttonStyle='btn--outline'
             buttonSize='btn--large'
@@ -19,7 +18,6 @@ function Header() {
             GET STARTED
             </Button>
       </div>
-    </div>
   );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import { Button } from './Button';
 
+
 function Footer() {
   return (
     <div className='footer-container'>
@@ -17,7 +18,7 @@ function Footer() {
               type='email'
               placeholder='Your Email'
             />
-            <input
+            <textarea
               className='footer-info'
               name='text'
               type='text'

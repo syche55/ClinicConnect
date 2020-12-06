@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
+
 
 
 .insurance_title{
@@ -8,21 +10,38 @@
     font-family: 'Montserrat';
 }
 
-.insurance_detail{
+.insurance_detail {
     text-align: center;
     margin:auto;
-    padding-bottom: 10px;
+    padding: 1.5rem;
     width: 50%;
     justify-content: center;
     display: flex;
+    text-decoration: inherit;
+}
+
+p{
+  font-size: 18px;
+  font-weight: bold !important;
+  letter-spacing: 1.2px;
+}
+
+.insurance_container{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: auto;
 }
 
 .insurance_type{
-    margin: 30px;
-    align-items: center;
+    margin: 15px;
+    align-items: left;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
+
 .insurance_type ul{
     counter-reset: index;  
     padding: 0;
@@ -34,9 +53,11 @@
     counter-increment: index; 
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: 10px 0;
     box-sizing: border-box;
-    
+    font-size: 20px;
+    color: #6DCCA3;
+    font-family: 'Montserrat' !important;
 }
 
 .insurance_type a{
