@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import './Availability.css';
+import React, { Component } from "react";
+import "./Availability.css";
 
 import Modal from '../components/Modal/Modal';
 import Backdrop from '../components/Backdrop/Backdrop';
@@ -15,16 +15,20 @@ class AvailabilityPage extends Component{
         selectedAvailability: null
     };
 
-    static contextType = AuthContext;
 
+  static contextType = AuthContext;
 
-    constructor(props) {
-        super(props);
-        this.titleElRef = React.createRef();
-        this.descriptionElRef = React.createRef();
-        this.priceElRef = React.createRef();
-        this.dateElRef = React.createRef();
-    }
+  constructor(props) {
+    super(props);
+    this.titleElRef = React.createRef();
+    this.descriptionElRef = React.createRef();
+    this.priceElRef = React.createRef();
+    this.dateElRef = React.createRef();
+  }
+
+  startCreateAvailabilityHandler = () => {
+    this.setState({ creating: true });
+  };
 
     componentDidMount() {
         this.fetchAvailability();
@@ -48,8 +52,9 @@ class AvailabilityPage extends Component{
             return;
         }
 
-        const requestBody = {
-            query: `
+
+    const requestBody = {
+      query: `
               mutation {
                 createAvailability(availabilityInput: {title: "${title}", description: "${description}", price:${price}, date:"${date}"}) {
                     _id
