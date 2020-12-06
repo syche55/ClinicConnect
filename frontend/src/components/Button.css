@@ -11,13 +11,18 @@
   background: #fff;
 }
 
-.btn--outline{
+.btn--outline {
   color: #fff;
   background: #fff;
   margin: 1rem;
   border-radius: 5px;
   padding: 8px 20px;
   transition: all 0.3s ease-out;
+}
+
+.btn--small {
+  padding: 8px 20px;
+  border-radius: 2px;
 }
 
 .btn--medium {
@@ -30,11 +35,12 @@
   font-size: 20px;
 }
 
+.btn--small:hover,
 .btn--large:hover,
 .btn--outline:hover,
 .btn--medium:hover {
   transition: all 0.3s ease-out;
-  background: #6DCCA3;
+  background: #6dcca3;
   color: white;
   transition: 250ms;
 }

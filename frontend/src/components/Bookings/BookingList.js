@@ -3,7 +3,7 @@ import React from "react";
 import "./BookingList.css";
 
 const bookingList = (props) => (
-  <ul className="bookings">
+  <ul className="bookings__list">
     {props.bookings.map((booking) => {
       return (
         <li key={booking._id} className="bookings__item">
@@ -13,7 +13,7 @@ const bookingList = (props) => (
           </div>
           <div className="bookings__item-actions">
             <button
-              className="btn"
+              className="btn--small"
               onClick={props.onDelete.bind(this, booking._id)}
             >
               Cancel
