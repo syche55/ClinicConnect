@@ -87,11 +87,6 @@ class AvailabilityPage extends Component {
     this.setState({ creating: false });
   };
 
-  click = (str) => {
-    // this.setState({ testing: false });
-    window.alert("mnmnn");
-  };
-
   fetchAvailability() {
     const requestBody = {
       query: `
@@ -136,7 +131,7 @@ class AvailabilityPage extends Component {
     const availabilityList = this.state.availabilitys.map((availability) => {
       return (
         <li key={availability.__id} className="events__list-item">
-          {availability.title + " " + availability.date}
+          {availability.title}
         </li>
       );
     });
@@ -189,7 +184,7 @@ class AvailabilityPage extends Component {
         </div>
         <ul className="events__list">
           {availabilityList.map((availability, index) => (
-            <li onClick={this.click.bind(this, "ajja")}>{availability}</li>
+            <li>{availability}</li>
           ))}
         </ul>
       </React.Fragment>
