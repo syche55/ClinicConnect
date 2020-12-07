@@ -63,3 +63,23 @@
     opacity:0.75;
 }
 
+@media screen and (max-width: 960px) {
+    .main-navigation_items{
+        font-size: 0.1rem;
+        padding: 0.2rem 0.2rem;
+        margin-left: 0.1rem;
+    }
+    .main-navigation_logo h1{
+        margin: 0;
+        color: white;
+        font-size: 0.5rem;
+        margin-left: 0;
+        margin-right: auto;
+        font-family: 'Montserrat';
+    }
+    .main-navigation_items li{
+        margin: 0 0.25rem;
+    }
+    
+  
+}
