@@ -33,8 +33,8 @@ class AuthPage extends Component{
 
     submitHandler = submit => {
         submit.preventDefault();
-        const firstName = this.firstNameEl.current.value;
-        const lastName = this.lastNameEl.current.value;
+        
+        
         const email = this.emailEl.current.value;
         const password =  this.passwordEl.current.value;
         if(email.trim().length === 0 || password.trim().length === 0){
@@ -54,7 +54,11 @@ class AuthPage extends Component{
             `
         };
 
+        console.log(JSON.stringify(requestBody));
+
         if(!this.state.isLogin){
+            const firstName = this.firstNameEl.current.value;
+            const lastName = this.lastNameEl.current.value; 
             const isDoctor = this.isDoctorEl.current.checked;
             requestBody = {
                 query: `
@@ -71,7 +75,7 @@ class AuthPage extends Component{
                     }
                 `
             };
-            console.log(JSON.stringify(requestBody));
+            
         }
 
 
@@ -110,6 +114,7 @@ class AuthPage extends Component{
             }
         })
         .catch(err =>{
+            window.alert("Bad Authentication!");
             console.log(err);
         });
 
@@ -119,9 +124,11 @@ class AuthPage extends Component{
         return (
             <div className="wrapper">
                 <div className="form-wrapper">
-                    <h1>Sign Up / Login</h1>
+                {this.state.isLogin ? <h1>Login</h1> : <h1>Sign Up</h1>}
                     <form className="auth-form" onSubmit = {this.submitHandler}>
-                    <div className="firstName">
+
+                     
+                    {this.state.isLogin ? null : <div className="firstName">
                         <label htmlFor="firstName">First Name</label>
                         <input
                             placeholder="First Name"
@@ -130,8 +137,10 @@ class AuthPage extends Component{
                             id="firstname"
                             ref = {this.firstNameEl}
                         />
-                    </div>
-                    <div className="lastName">
+                    </div> }
+
+
+                    {this.state.isLogin ? null : <div className="lastName">
                         <label htmlFor="lastName">Last Name</label>
                         <input
                             placeholder="Last Name"
@@ -140,7 +149,8 @@ class AuthPage extends Component{
                             id = "lastName"
                             ref = {this.lastNameEl}
                         />
-                    </div>
+                    </div> }
+
                     <div className="email">
                         <label htmlFor="email">Email</label>
                         <input
@@ -169,7 +179,7 @@ class AuthPage extends Component{
                     <div className="createAccount">
                     <button type="submit">Submit</button>
                     <button type="button" onClick = {this.switchModeHandler}>
-                        {this.state.isLogin ? 'No account yet?' : 'Already have an account?'} Click here to {this.state.isLogin ? 'Signup!' : 'Login!'}
+                        {this.state.isLogin ? 'No account yet?' : 'Already a member?'} Click here to {this.state.isLogin ? 'Signup!' : 'Login!'}
                     </button>
                     </div>
                     </form>

@@ -1,5 +1,5 @@
+const { default: availabilityList } = require('../../frontend/src/components/Availability/AvailabilityList/AvailabilityList');
 const Availability = require('../../models/availability');
-const User = require('../../models/user');
 const { transformAvailability } = require('./merge');
 
 
@@ -17,6 +17,7 @@ module.exports = {
         }
         
     },
+
     
     createAvailability: async (args, req) => {
         if(!req.isAuth){
@@ -28,7 +29,8 @@ module.exports = {
             price: +args.availabilityInput.price,
             // parse string into Date object
             // in console, new Date().toISOString()
-            date: new Date(args.availabilityInput.date)
+            date: new Date(args.availabilityInput.date),
+            // booked: false
         });
         let createdAvailableTime;
         try {

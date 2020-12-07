@@ -43,6 +43,7 @@ module.exports = {
     const fetchedAvailability = await Availability.findOne({
       _id: args.availabilityId,
     });
+    
     // fill user
     const booking = new Booking({
       user: req.userId,

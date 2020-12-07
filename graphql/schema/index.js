@@ -7,6 +7,7 @@ type Availability {
     description: String!
     price: Float!
     date: String!
+    booked: Boolean
 }
 
 type User {

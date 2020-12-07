@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AuthContext from "../context/auth-context";
 // import Spinner from "../components/Spinner/Spinner";
 import BookingList from "../components/Bookings/BookingList";
+import './Bookings.css';
 
 class BookingsPage extends Component {
   state = {
@@ -99,8 +100,11 @@ class BookingsPage extends Component {
   };
 
   render() {
+    console.log(this.context.firstName);
     return (
+      
       <React.Fragment>
+        <h1 class="greeting">Hello,</h1>
         <BookingList
           bookings={this.state.bookings}
           onDelete={this.deleteBookingHandler}

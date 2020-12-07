@@ -5,7 +5,6 @@ import Modal from "../components/Modal/Modal";
 import Backdrop from "../components/Backdrop/Backdrop";
 import AuthContext from "../context/auth-context";
 import AvailabilityList from "../components/Availability/AvailabilityList/AvailabilityList";
-import availabilityList from "../components/Availability/AvailabilityList/AvailabilityList";
 
 class AvailabilityPage extends Component {
   state = {
@@ -32,10 +31,6 @@ class AvailabilityPage extends Component {
   componentDidMount() {
     this.fetchAvailability();
   }
-
-  startCreateAvailabilityHandler = () => {
-    this.setState({ creating: true });
-  };
 
   modalConfirmHandler = () => {
     this.setState({ creating: false });
@@ -210,11 +205,12 @@ class AvailabilityPage extends Component {
             <form>
               <div className="form-control">
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" ref={this.titleElRef}></input>
+                <input placeholder="Service Title" type="text" id="title" ref={this.titleElRef}></input>
               </div>
               <div className="form-control">
                 <label htmlFor="title">Description</label>
                 <input
+                    placeholder="Doctor Name"
                   type="text"
                   id="description"
                   ref={this.descriptionElRef}
@@ -222,7 +218,7 @@ class AvailabilityPage extends Component {
               </div>
               <div className="form-control">
                 <label htmlFor="price">Price</label>
-                <input type="number" id="title" ref={this.priceElRef}></input>
+                <input placeholder="$0.0" type="number" id="title" ref={this.priceElRef}></input>
               </div>
               <div className="form-control">
                 <label htmlFor="date">Date</label>

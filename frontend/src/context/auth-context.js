@@ -6,6 +6,6 @@ export default React.createContext({
     isDoctor: null,
     firstName: null,
     lastName: null,
-    login: (firstName, lastName, userId, isDoctor, token, tokenExpiration) => {},
+    login: (userId, isDoctor, token, tokenExpiration) => {},
     logout: ()=> {}
 });
