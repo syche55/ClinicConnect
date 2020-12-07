@@ -1,10 +1,13 @@
 .availability__list-item {
     margin: 1rem 0;
     padding: 1rem;
-    border: 1px solid #9155A7;
+    border: 2px solid ;
+    border-radius: 5px;
+    border-color: #6DCCA3;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
 }
 
 .availability__list-item h4 {
@@ -17,4 +20,21 @@
     margin: 0;
     font-size: 1rem;
     color:  #7c7c7c;
+}
+
+.availability__list-item button{
+  color: #6DCCA3;
+  background: #fff !important;
+  border-radius: 5px;
+  border-color: #6DCCA3;
+  padding: 8px 20px;
+  transition: all 0.3s ease-out;
+}
+
+
+.availability__list-item button:hover {
+  transition: all 0.3s ease-out;
+  background: #6dcca3 !important;
+  color:#fff;
+  transition: 250ms;
 }
