@@ -1,9 +1,9 @@
 import React from "react";
 import "../App.css";
 import Footer from "../components/Footer";
-import Cards from "../components/Cards";
+import Cards from "../components/Card/Cards";
 import Header from "../components/Header";
-import Infos from "../components/Infos";
+import Infos from "../components/Card/Infos";
 import Box from "../components/Box";
 
 function HomePage() {

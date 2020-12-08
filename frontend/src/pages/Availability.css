@@ -1,6 +1,6 @@
 h2 {
     margin-top: 80px;
-    color: teal;
+    color: #6DCCA3;
     text-align: center;
 }
 
@@ -11,11 +11,13 @@ p {
 
 .events-control {
     text-align: center;
-    border: 2px solid #9155A7;
+    border: 2px solid ;
+    border-radius: 5px;
+    border-color: #6DCCA3;
     padding: 2rem;
     margin: 2rem auto;
     width: 30rem;
-    max-width: 80%
+    max-width: 80%;
 }
 
 .modal__header {
@@ -35,5 +37,23 @@ p {
 .events__list-item {
   margin: 1rem 0;
   padding: 1rem;
-  border: 1px solid #5101d1;
+  border: 1px solid #6DCCA3;
+}
+
+.events-control button{
+  color: #6DCCA3;
+  background: #fff !important;
+  border-radius: 5px;
+  border-color: #6DCCA3;
+  padding: 8px 20px;
+  margin-top: 20px;
+  transition: all 0.3s ease-out;
+}
+
+
+.events-control button:hover {
+  transition: all 0.3s ease-out;
+  background: #6dcca3 !important;
+  color:#fff;
+  transition: 250ms;
 }

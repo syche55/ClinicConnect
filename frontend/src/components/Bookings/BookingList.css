@@ -1,16 +1,45 @@
 .bookings__list {
   list-style: none;
   margin: 5rem auto;
-  padding: 0;
+  padding-top: 2rem;
   width: 40rem;
   max-width: 90%;
+  font-size: 1.5rem;
+  color: #2F2E2E;
 }
 
 .bookings__item {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border: 1px solid #5101d1;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 2px solid ;
+  border-radius: 5px;
+  border-color: #6DCCA3;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
 }
+
+.bookings__item-data {
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.bookings__item button{
+  color: #6DCCA3;
+  background: #fff !important;
+  border-radius: 5px;
+  border-color: #6DCCA3;
+  padding: 8px 20px;
+  transition: all 0.3s ease-out;
+}
+
+
+.bookings__item button:hover {
+    transition: all 0.3s ease-out;
+    background: #6dcca3 !important;
+    color:#fff;
+    transition: 250ms;
+  }

@@ -189,7 +189,7 @@ class AvailabilityPage extends Component {
           <div className="events-control">
             <p>Add new time slots for the patients to book.</p>
             <button
-              className="btn"
+             
               onClick={this.startCreateAvailabilityHandler}
             >
               Create an Availability
