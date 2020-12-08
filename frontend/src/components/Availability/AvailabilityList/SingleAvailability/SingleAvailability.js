@@ -8,7 +8,7 @@ const singleAvailability = (props) => (
     <div>
       <h4>{props.title}</h4>
       <h5>
-        ${props.price} - {new Date(props.date).toLocaleDateString()}{" "}
+        {props.description} - {new Date(props.date).toLocaleDateString()}{" "} - ${props.price}
       </h5>
     </div>
     <div>

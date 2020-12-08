@@ -101,6 +101,11 @@ class AvailabilityPage extends Component {
                     _id
                     createdAt
                     updatedAt
+                    user {
+                      _id
+                      firstName
+                      lastName
+                    }
                     availability {
                       _id
                       booked
@@ -109,6 +114,7 @@ class AvailabilityPage extends Component {
               }
             `,
     };
+    console.log(this.context.userId);
     console.log(JSON.stringify(requestBody));
     fetch("http://localhost:8000/graphql", {
       method: "POST",

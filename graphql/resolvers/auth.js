@@ -24,7 +24,9 @@ module.exports = {
                     expiresIn: '1h'
                 });
                 // we do not want to expose password, even though hashed
-                return { ...result._doc, password:null, _id: result.id, token: token }
+                return { ...result._doc, password:null, userId: result._id, token: token, firstName: user.firstName, lastName:user.lastName}
+                // return {...result._doc, userId: result.id, isDoctor:result.isDoctor, token: token,  tokenExpiration: 1, firstName: result.firstName, lastName: result.lastName};
+
             } catch (err) {
                 throw err;
             }

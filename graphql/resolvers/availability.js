@@ -17,9 +17,6 @@ module.exports = {
         
     },
 
-    // updateAvailability: async ({id, boolean}) => {
-        
-    // },
     
     createAvailability: async (args, req) => {
         if(!req.isAuth){

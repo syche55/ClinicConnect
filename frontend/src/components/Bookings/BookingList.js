@@ -13,6 +13,7 @@ const bookingList = (props) => (
         <li key={booking._id} className="bookings__item">
           <div className="bookings__item-data">
             {booking.availability.title} -{" "}
+            {booking.availability.description}
             {new Date(booking.availability.date).toLocaleDateString()}
           </div>
           <div className="bookings__item-actions">

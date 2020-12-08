@@ -56,7 +56,6 @@ class AuthPage extends Component{
             `
         };
 
-        console.log(JSON.stringify(requestBody));
 
         if(!this.state.isLogin){
             const firstName = this.firstNameEl.current.value;
@@ -65,7 +64,7 @@ class AuthPage extends Component{
             requestBody = {
                 query: `
                     mutation{
-                        createUser(userInput: {email: "${email}", password: "${password}", isDoctor: ${isDoctor}, , firstName:"${firstName}", lastName:"${lastName}"}){
+                        createUser(userInput: {email: "${email}", password: "${password}", isDoctor: ${isDoctor}, firstName:"${firstName}", lastName:"${lastName}"}){
                             _id
                             email
                             password
@@ -80,6 +79,7 @@ class AuthPage extends Component{
             
         }
 
+        console.log(JSON.stringify(requestBody));
 
         fetch('http://localhost:8000/graphql', {
             method: 'POST',
@@ -106,9 +106,10 @@ class AuthPage extends Component{
                     );
                 }
             } else {
+                console.log(resData.data.createUser);
                 if(resData.data.createUser.token){
                     this.context.login(
-                        resData.data.createUser.userId,
+                        resData.data.createUser._id,
                         resData.data.createUser.isDoctor, 
                         resData.data.createUser.token, 
                         resData.data.createUser.tokenExpiration,

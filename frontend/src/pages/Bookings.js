@@ -8,7 +8,6 @@ import './Bookings.css';
 
 class BookingsPage extends Component {
   state = {
-    isLoading: false,
     bookings: [],
   };
 
@@ -21,7 +20,6 @@ class BookingsPage extends Component {
   
 
   fetchBookings = () => {
-    this.setState({ isLoading: true });
     const requestBody = {
       query: `
               query {
@@ -56,7 +54,7 @@ class BookingsPage extends Component {
       })
       .then((resData) => {
         const bookings = resData.data.bookings;
-        this.setState({ bookings: bookings, isLoading: false });
+        this.setState({ bookings: bookings});
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +62,6 @@ class BookingsPage extends Component {
   };
 
   deleteBookingHandler = (bookingId) => {
-    this.setState({ isLoading: true });
     const requestBody = {
       query: `
               mutation {
@@ -96,7 +93,7 @@ class BookingsPage extends Component {
             return booking._id !== bookingId;
           });
           
-          return { bookings: updatedBookings, isLoading: false };
+          return { bookings: updatedBookings };
         });
       })
       .catch((err) => {
@@ -106,8 +103,9 @@ class BookingsPage extends Component {
 
   render() {
     return (
-
+      
       <React.Fragment>
+        
         <h2 class="greeting">Hello,  {this.context.firstName}</h2>
         {this.state.bookings.length === 0 && 
         <h3>You do not have any bookings, please checkout the Availability page to book one!</h3>}

@@ -3,7 +3,6 @@ import React from 'react';
 import SingleAvailability from './SingleAvailability/SingleAvailability';
 
 import './AvailabilityList.css';
-import singleAvailability from './SingleAvailability/SingleAvailability';
 
 const availabilityList = props => {
     const availabilityLists = props.availability
@@ -16,6 +15,7 @@ const availabilityList = props => {
             <SingleAvailability 
             key={singleAvailability._id}
             myId={singleAvailability._id}
+            description={singleAvailability.description}
             availabilityId={props.onClickAvailability} 
             title={singleAvailability.title}
             userIsDoctor={props.authUserIsDoctor}

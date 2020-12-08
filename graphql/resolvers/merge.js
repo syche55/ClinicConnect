@@ -40,7 +40,8 @@ const transformAvailability = availableTime => {
     return {
         ...availableTime._doc,
         _id: availableTime.id,
-        date: dateToString(availableTime._doc.date)
+        date: dateToString(availableTime._doc.date),
+        booked: availableTime.booked
     };
 };
 
