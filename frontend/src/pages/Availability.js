@@ -65,7 +65,7 @@ class AvailabilityPage extends Component {
     };
     //   console.log(JSON.stringify(requestBody));
     const token = this.context.token;
-    fetch("http://localhost:8000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -94,7 +94,7 @@ class AvailabilityPage extends Component {
     const selected = this.state.availabilityLists.find(
       (a) => a._id === bookedSingleAvailabilityId
     );
-    this.setState({selectedAvailability:selected});
+    this.setState({ selectedAvailability: selected });
     const requestBody = {
       query: `
               mutation {
@@ -117,7 +117,7 @@ class AvailabilityPage extends Component {
     };
     console.log(this.context.userId);
     console.log(JSON.stringify(requestBody));
-    fetch("http://localhost:8000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -134,7 +134,6 @@ class AvailabilityPage extends Component {
       .then(() => {
         window.alert("The appointment has been successfully booked!");
         this.fetchAvailability();
-
       })
       .catch((err) => {
         console.log(err);
@@ -157,7 +156,7 @@ class AvailabilityPage extends Component {
               }
             `,
     };
-    fetch("http://localhost:8000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -195,10 +194,7 @@ class AvailabilityPage extends Component {
         {this.context.isDoctor && (
           <div className="events-control">
             <p>Add new time slots for the patients to book.</p>
-            <button
-             
-              onClick={this.startCreateAvailabilityHandler}
-            >
+            <button onClick={this.startCreateAvailabilityHandler}>
               Create an Availability
             </button>
           </div>
@@ -206,8 +202,6 @@ class AvailabilityPage extends Component {
         {!this.context.isDoctor && (
           <p>Select from below to book a new appointment.</p>
         )}
-
-
 
         {this.state.creating && (
           <Modal
@@ -220,12 +214,17 @@ class AvailabilityPage extends Component {
             <form>
               <div className="form-control">
                 <label htmlFor="title">Title</label>
-                <input placeholder="Service Title" type="text" id="title" ref={this.titleElRef}></input>
+                <input
+                  placeholder="Service Title"
+                  type="text"
+                  id="title"
+                  ref={this.titleElRef}
+                ></input>
               </div>
               <div className="form-control">
                 <label htmlFor="title">Description</label>
                 <input
-                    placeholder="Doctor Name"
+                  placeholder="Doctor Name"
                   type="text"
                   id="description"
                   ref={this.descriptionElRef}
@@ -233,7 +232,12 @@ class AvailabilityPage extends Component {
               </div>
               <div className="form-control">
                 <label htmlFor="price">Price</label>
-                <input placeholder="$0.0" type="number" id="title" ref={this.priceElRef}></input>
+                <input
+                  placeholder="$0.0"
+                  type="number"
+                  id="title"
+                  ref={this.priceElRef}
+                ></input>
               </div>
               <div className="form-control">
                 <label htmlFor="date">Date</label>
@@ -246,7 +250,6 @@ class AvailabilityPage extends Component {
             </form>
           </Modal>
         )}
-
 
         {this.state.isLoading ? (
           <p> Loading... </p>

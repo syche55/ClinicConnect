@@ -4,7 +4,7 @@ import Box from "../components/Box";
 import BookingList from "../components/Bookings/BookingList";
 import BookingListPassed from "../components/Bookings/BookingListPassed";
 
-import './Bookings.css';
+import "./Bookings.css";
 
 class BookingsPage extends Component {
   state = {
@@ -16,8 +16,6 @@ class BookingsPage extends Component {
   componentDidMount() {
     this.fetchBookings();
   }
-
-  
 
   fetchBookings = () => {
     const requestBody = {
@@ -38,7 +36,7 @@ class BookingsPage extends Component {
     };
     //   console.log(JSON.stringify(requestBody));
     const token = this.context.token;
-    fetch("http://localhost:8000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -54,7 +52,7 @@ class BookingsPage extends Component {
       })
       .then((resData) => {
         const bookings = resData.data.bookings;
-        this.setState({ bookings: bookings});
+        this.setState({ bookings: bookings });
       })
       .catch((err) => {
         console.log(err);
@@ -72,7 +70,7 @@ class BookingsPage extends Component {
               }
             `,
     };
-    fetch("http://localhost:8000/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -84,7 +82,7 @@ class BookingsPage extends Component {
         if (res.status !== 200 && res.status !== 201) {
           throw new Error("Failed!");
         }
-        window.alert("Successfully canceled!")
+        window.alert("Successfully canceled!");
         return res.json();
       })
       .then((resData) => {
@@ -92,7 +90,7 @@ class BookingsPage extends Component {
           const updatedBookings = prevState.bookings.filter((booking) => {
             return booking._id !== bookingId;
           });
-          
+
           return { bookings: updatedBookings };
         });
       })
@@ -103,24 +101,23 @@ class BookingsPage extends Component {
 
   render() {
     return (
-      
       <React.Fragment>
         <Box text="Your Bookings" />
-        <h2 class="greeting">Hello,  {this.context.firstName}</h2>
-        {this.state.bookings.length === 0 && 
-        <h3>You do not have any bookings, please checkout the Availability page to book one!</h3>}
+        <h2 class="greeting">Hello, {this.context.firstName}</h2>
+        {this.state.bookings.length === 0 && (
+          <h3>
+            You do not have any bookings, please checkout the Availability page
+            to book one!
+          </h3>
+        )}
         <h3>Upcoming Bookings</h3>
         <BookingList
           bookings={this.state.bookings}
           onDelete={this.deleteBookingHandler}
         />
         <h3>Passed Bookings</h3>
-        <BookingListPassed 
-        bookings={this.state.bookings}
-        />
+        <BookingListPassed bookings={this.state.bookings} />
       </React.Fragment>
-
-      
     );
   }
 }

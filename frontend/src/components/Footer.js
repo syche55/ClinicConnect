@@ -8,7 +8,7 @@ function Footer() {
   const submitRequest = async (e) => {
     e.preventDefault();
     console.log({ email, message });
-    const response = await fetch("http://localhost:8000/access", {
+    const response = await fetch("/access", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
