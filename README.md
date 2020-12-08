@@ -26,11 +26,11 @@ Client communicates with the back end: GraphQL.
 
 For Doctor - Create Availability
 
-![Recordit GIF](http://g.recordit.co/ulj6Uo6SjZ.gif)
+![Recordit GIF](https://i.ibb.co/BKNX4PQ/ulj6-Uo6-Sj-Z.gif)
 
 For Patients - Book Availability
 
-![Recordit GIF](http://g.recordit.co/Epxf8V6ONh.gif)
+![Recordit GIF](https://i.ibb.co/k67KtLT/asd.gif)
 
 -Track Availability
 
@@ -43,7 +43,7 @@ For Patients - Book Availability
 
 Quick preview of departments of the clinic and start booking directly.
 
-![Recordit GIF](http://g.recordit.co/LGUhHr5dPl.gif)
+![Recordit GIF](https://i.ibb.co/3rbdC12/asdd.gif)
 
 Head to insurance and booking page.
 
