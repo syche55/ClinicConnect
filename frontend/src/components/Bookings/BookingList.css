@@ -1,7 +1,6 @@
 .bookings__list {
   list-style: none;
-  margin: 5rem auto;
-  padding-top: 2rem;
+  margin: 2rem auto;
   width: 40rem;
   max-width: 90%;
   font-size: 1.5rem;

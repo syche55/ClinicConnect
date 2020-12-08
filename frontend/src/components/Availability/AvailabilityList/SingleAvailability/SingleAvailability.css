@@ -29,6 +29,7 @@
   border-color: #6DCCA3;
   padding: 8px 20px;
   transition: all 0.3s ease-out;
+
 }
 
 
@@ -37,4 +38,5 @@
   background: #6dcca3 !important;
   color:#fff;
   transition: 250ms;
+  cursor: pointer;
 }

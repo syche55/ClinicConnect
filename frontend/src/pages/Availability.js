@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Availability.css";
 
+import Box from "../components/Box";
 import Modal from "../components/Modal/Modal";
 import Backdrop from "../components/Backdrop/Backdrop";
 import AuthContext from "../context/auth-context";
@@ -188,7 +189,7 @@ class AvailabilityPage extends Component {
 
     return (
       <React.Fragment>
-        <h2>Availability</h2>
+        <Box text="Availability" />
         {this.state.creating && <Backdrop />}
 
         {this.context.isDoctor && (
