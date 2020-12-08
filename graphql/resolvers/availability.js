@@ -1,4 +1,3 @@
-const { default: availabilityList } = require('../../frontend/src/components/Availability/AvailabilityList/AvailabilityList');
 const Availability = require('../../models/availability');
 const { transformAvailability } = require('./merge');
 
@@ -18,6 +17,9 @@ module.exports = {
         
     },
 
+    // updateAvailability: async ({id, boolean}) => {
+        
+    // },
     
     createAvailability: async (args, req) => {
         if(!req.isAuth){
@@ -30,7 +32,7 @@ module.exports = {
             // parse string into Date object
             // in console, new Date().toISOString()
             date: new Date(args.availabilityInput.date),
-            // booked: false
+            booked: false
         });
         let createdAvailableTime;
         try {

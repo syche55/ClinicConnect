@@ -34,6 +34,8 @@ type AuthData {
     isDoctor: Boolean!
     token: String!
     tokenExpiration: Int!
+    firstName: String
+    lastName: String
 }
 
 input AvailabilityInput {

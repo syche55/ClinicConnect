@@ -93,8 +93,7 @@ class AvailabilityPage extends Component {
     const selected = this.state.availabilityLists.find(
       (a) => a._id === bookedSingleAvailabilityId
     );
-    this.state.selectedAvailability = selected;
-    console.log(this.state);
+    this.setState({selectedAvailability:selected});
     const requestBody = {
       query: `
               mutation {
@@ -102,6 +101,10 @@ class AvailabilityPage extends Component {
                     _id
                     createdAt
                     updatedAt
+                    availability {
+                      _id
+                      booked
+                    }
                 }
               }
             `,
@@ -121,8 +124,10 @@ class AvailabilityPage extends Component {
         }
         return res.json();
       })
-      .then((resData) => {
-        console.log(resData);
+      .then(() => {
+        window.alert("The appointment has been successfully booked!");
+        this.fetchAvailability();
+
       })
       .catch((err) => {
         console.log(err);
@@ -140,6 +145,7 @@ class AvailabilityPage extends Component {
                     description
                     price
                     date
+                    booked
                 }
               }
             `,
@@ -194,6 +200,8 @@ class AvailabilityPage extends Component {
           <p>Select from below to book a new appointment.</p>
         )}
 
+
+
         {this.state.creating && (
           <Modal
             title="Add Availability"
@@ -231,6 +239,7 @@ class AvailabilityPage extends Component {
             </form>
           </Modal>
         )}
+
 
         {this.state.isLoading ? (
           <p> Loading... </p>

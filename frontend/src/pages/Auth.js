@@ -49,6 +49,8 @@ class AuthPage extends Component{
                         isDoctor
                         token
                         tokenExpiration
+                        firstName
+                        lastName
                     }
                 }
             `
@@ -98,17 +100,20 @@ class AuthPage extends Component{
                         resData.data.login.userId,
                         resData.data.login.isDoctor, 
                         resData.data.login.token, 
-                        resData.data.login.tokenExpiration
+                        resData.data.login.tokenExpiration,
+                        resData.data.login.firstName,
+                        resData.data.login.lastNmae
                     );
                 }
             } else {
                 if(resData.data.createUser.token){
                     this.context.login(
-                        // can not add name here - Auth Data
                         resData.data.createUser.userId,
                         resData.data.createUser.isDoctor, 
                         resData.data.createUser.token, 
-                        resData.data.createUser.tokenExpiration
+                        resData.data.createUser.tokenExpiration,
+                        resData.data.createUser.firstName,
+                        resData.data.createUser.lastNmae
                     );
                 }
             }

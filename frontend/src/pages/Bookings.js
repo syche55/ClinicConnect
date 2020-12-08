@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import AuthContext from "../context/auth-context";
 // import Spinner from "../components/Spinner/Spinner";
 import BookingList from "../components/Bookings/BookingList";
+import BookingListPassed from "../components/Bookings/BookingListPassed";
+
 import './Bookings.css';
 
 class BookingsPage extends Component {
@@ -16,6 +18,8 @@ class BookingsPage extends Component {
     this.fetchBookings();
   }
 
+  
+
   fetchBookings = () => {
     this.setState({ isLoading: true });
     const requestBody = {
@@ -28,6 +32,7 @@ class BookingsPage extends Component {
                       _id
                       title
                       date
+                      booked
                     }
                 }
               }
@@ -70,8 +75,6 @@ class BookingsPage extends Component {
               }
             `,
     };
-    //   console.log(JSON.stringify(requestBody));
-    const token = this.context.token;
     fetch("http://localhost:8000/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
@@ -84,6 +87,7 @@ class BookingsPage extends Component {
         if (res.status !== 200 && res.status !== 201) {
           throw new Error("Failed!");
         }
+        window.alert("Successfully canceled!")
         return res.json();
       })
       .then((resData) => {
@@ -91,6 +95,7 @@ class BookingsPage extends Component {
           const updatedBookings = prevState.bookings.filter((booking) => {
             return booking._id !== bookingId;
           });
+          
           return { bookings: updatedBookings, isLoading: false };
         });
       })
@@ -100,16 +105,24 @@ class BookingsPage extends Component {
   };
 
   render() {
-    console.log(this.context.firstName);
     return (
-      
+
       <React.Fragment>
-        <h1 class="greeting">Hello,</h1>
+        <h2 class="greeting">Hello,  {this.context.firstName}</h2>
+        {this.state.bookings.length === 0 && 
+        <h3>You do not have any bookings, please checkout the Availability page to book one!</h3>}
+        <h3>Upcoming Bookings</h3>
         <BookingList
           bookings={this.state.bookings}
           onDelete={this.deleteBookingHandler}
         />
+        <h3>Passed Bookings</h3>
+        <BookingListPassed 
+        bookings={this.state.bookings}
+        />
       </React.Fragment>
+
+      
     );
   }
 }

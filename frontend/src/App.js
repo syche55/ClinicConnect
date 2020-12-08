@@ -16,11 +16,13 @@ class App extends Component {
   state = {
     token: null,
     isDoctor: false,
-    userId: null
+    userId: null,
+    firstName: null,
+    lastName: null
   };
 
-  login = (userId, isDoctor, token, tokenExpiration) => {
-    this.setState({token:token, userId: userId, isDoctor: isDoctor});
+  login = (userId, isDoctor, token, tokenExpiration, firstName, lastName) => {
+    this.setState({token:token, userId: userId, isDoctor: isDoctor, firstName:firstName, lastName:lastName});
   };
 
   logout = () => {
@@ -36,6 +38,8 @@ class App extends Component {
             token: this.state.token, 
             userId: this.state.userId,
             isDoctor: this.state.isDoctor,
+            firstName:this.state.firstName,
+            lastName: this.state.lastName,
             login: this.login, 
             logout: this.logout
           }}
