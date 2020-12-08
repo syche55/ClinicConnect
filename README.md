@@ -22,6 +22,10 @@ Font-end: React, CSS, JavaScript.
 Back-end: Node.js, Express, Mongoose, MongoDB 
 Client communicates with the back end: GraphQL.
 
+## Testing Approach
+Our team developed a testing documentation with specific testing rules covering technical reviews, database review, development testing, qualification testing, and acceptance testing. 
+Please see the doc for the details: https://docs.google.com/document/d/1JaDsXYyu1Lwlgso_bkWXBFfqyKAIrl1Sb-BGyz96sG4/edit?usp=sharing
+
 ## Booking Feature
 
 For Doctor - Create Availability
