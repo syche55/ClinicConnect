@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000;
 
 // app.use("/", express.static(path.join(__dirname, "public")));
 
-// app.listen(port, () => console.log("Listening on Port", port));
+app.set("port", port);
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
