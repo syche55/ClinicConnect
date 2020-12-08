@@ -10,6 +10,11 @@ const isAuth = require("./middleware/is-auth");
 const app = express();
 let nodemailer = require("nodemailer");
 const path = require("path");
+const port = process.env.PORT || 8000;
+
+// app.use("/", express.static(path.join(__dirname, "public")));
+
+// app.listen(port, () => console.log("Listening on Port", port));
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -89,13 +94,20 @@ app.use(
   })
 );
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 mongoose
   .connect(`${process.env.MONGO_URL}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(8000);
+    app.listen(port, () => console.log("Listening on Port", port));
   })
   .catch((err) => {
     console.log(err);
