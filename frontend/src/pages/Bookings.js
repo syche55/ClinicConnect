@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthContext from "../context/auth-context";
-// import Spinner from "../components/Spinner/Spinner";
+import Box from "../components/Box";
 import BookingList from "../components/Bookings/BookingList";
 import BookingListPassed from "../components/Bookings/BookingListPassed";
 
@@ -105,7 +105,7 @@ class BookingsPage extends Component {
     return (
       
       <React.Fragment>
-        
+        <Box text="Your Bookings" />
         <h2 class="greeting">Hello,  {this.context.firstName}</h2>
         {this.state.bookings.length === 0 && 
         <h3>You do not have any bookings, please checkout the Availability page to book one!</h3>}
