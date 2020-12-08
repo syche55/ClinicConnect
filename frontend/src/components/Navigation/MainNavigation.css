@@ -63,7 +63,7 @@
     opacity:0.75;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1200px) {
     .main-navigation_items{
         font-size: 0.1rem;
         padding: 0.2rem 0.2rem;
