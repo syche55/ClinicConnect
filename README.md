@@ -4,7 +4,7 @@
 
 Website Link: Click Here!
 
-**A quick demo on Youtube:  [Click here](https://www.youtube.com/watch?v=YSlzd1GJ5As&feature=youtu.be)**
+**A quick demo on Youtube:  [Click here]()**
 
 The application enables a patient to manage information about appointments at the clinic, to track current availability of appointments, and to book appointments for a particular department and specific doctor at the clinic. 
 
@@ -30,11 +30,11 @@ Please see the doc for the details: https://docs.google.com/document/d/1JaDsXYyu
 
 For Doctor - Create Availability
 
-![Recordit GIF](https://i.ibb.co/BKNX4PQ/ulj6-Uo6-Sj-Z.gif)
+![Recordit GIF](https://github.ccs.neu.edu/2020FACS5610SV/project-colon_three/blob/master/image/createA.gif)
 
 For Patients - Book Availability
 
-![Recordit GIF](https://i.ibb.co/k67KtLT/asd.gif)
+![Recordit GIF](https://github.ccs.neu.edu/2020FACS5610SV/project-colon_three/blob/master/image/booking.gif)
 
 -Track Availability
 
@@ -47,7 +47,7 @@ For Patients - Book Availability
 
 Quick preview of departments of the clinic and start booking directly.
 
-![Recordit GIF](https://i.ibb.co/3rbdC12/asdd.gif)
+![Recordit GIF](https://github.ccs.neu.edu/2020FACS5610SV/project-colon_three/blob/master/image/mainPage.gif)
 
 Head to insurance and booking page.
 
