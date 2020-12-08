@@ -5,7 +5,6 @@ import Modal from "../components/Modal/Modal";
 import Backdrop from "../components/Backdrop/Backdrop";
 import AuthContext from "../context/auth-context";
 import AvailabilityList from "../components/Availability/AvailabilityList/AvailabilityList";
-import availabilityList from "../components/Availability/AvailabilityList/AvailabilityList";
 
 class AvailabilityPage extends Component {
   state = {
@@ -32,10 +31,6 @@ class AvailabilityPage extends Component {
   componentDidMount() {
     this.fetchAvailability();
   }
-
-  startCreateAvailabilityHandler = () => {
-    this.setState({ creating: true });
-  };
 
   modalConfirmHandler = () => {
     this.setState({ creating: false });
@@ -98,8 +93,7 @@ class AvailabilityPage extends Component {
     const selected = this.state.availabilityLists.find(
       (a) => a._id === bookedSingleAvailabilityId
     );
-    this.state.selectedAvailability = selected;
-    console.log(this.state);
+    this.setState({selectedAvailability:selected});
     const requestBody = {
       query: `
               mutation {
@@ -107,6 +101,10 @@ class AvailabilityPage extends Component {
                     _id
                     createdAt
                     updatedAt
+                    availability {
+                      _id
+                      booked
+                    }
                 }
               }
             `,
@@ -126,8 +124,10 @@ class AvailabilityPage extends Component {
         }
         return res.json();
       })
-      .then((resData) => {
-        console.log(resData);
+      .then(() => {
+        window.alert("The appointment has been successfully booked!");
+        this.fetchAvailability();
+
       })
       .catch((err) => {
         console.log(err);
@@ -145,6 +145,7 @@ class AvailabilityPage extends Component {
                     description
                     price
                     date
+                    booked
                 }
               }
             `,
@@ -199,6 +200,8 @@ class AvailabilityPage extends Component {
           <p>Select from below to book a new appointment.</p>
         )}
 
+
+
         {this.state.creating && (
           <Modal
             title="Add Availability"
@@ -210,11 +213,12 @@ class AvailabilityPage extends Component {
             <form>
               <div className="form-control">
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" ref={this.titleElRef}></input>
+                <input placeholder="Service Title" type="text" id="title" ref={this.titleElRef}></input>
               </div>
               <div className="form-control">
                 <label htmlFor="title">Description</label>
                 <input
+                    placeholder="Doctor Name"
                   type="text"
                   id="description"
                   ref={this.descriptionElRef}
@@ -222,7 +226,7 @@ class AvailabilityPage extends Component {
               </div>
               <div className="form-control">
                 <label htmlFor="price">Price</label>
-                <input type="number" id="title" ref={this.priceElRef}></input>
+                <input placeholder="$0.0" type="number" id="title" ref={this.priceElRef}></input>
               </div>
               <div className="form-control">
                 <label htmlFor="date">Date</label>
@@ -235,6 +239,7 @@ class AvailabilityPage extends Component {
             </form>
           </Modal>
         )}
+
 
         {this.state.isLoading ? (
           <p> Loading... </p>

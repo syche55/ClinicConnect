@@ -7,6 +7,7 @@ type Availability {
     description: String!
     price: Float!
     date: String!
+    booked: Boolean
 }
 
 type User {
@@ -33,6 +34,8 @@ type AuthData {
     isDoctor: Boolean!
     token: String!
     tokenExpiration: Int!
+    firstName: String
+    lastName: String
 }
 
 input AvailabilityInput {

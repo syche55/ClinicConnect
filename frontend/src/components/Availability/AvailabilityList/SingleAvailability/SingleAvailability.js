@@ -3,6 +3,7 @@ import React from "react";
 import "./SingleAvailability.css";
 
 const singleAvailability = (props) => (
+   
   <li key={props.myId} className="availability__list-item">
     <div>
       <h4>{props.title}</h4>
@@ -11,7 +12,7 @@ const singleAvailability = (props) => (
       </h5>
     </div>
     <div>
-      {!props.userIsDoctor && (
+      {!props.userIsDoctor && !props.booked && (
         <button
           className="btn--small"
           onClick={() => props.availabilityId(props.myId)}
@@ -19,8 +20,8 @@ const singleAvailability = (props) => (
           Book
         </button>
       )}
-    </div>
-  </li>
+    </div> 
+  </li> 
 );
 
 export default singleAvailability;
