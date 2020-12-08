@@ -14,7 +14,9 @@ const port = process.env.PORT || 8000;
 
 // app.use("/", express.static(path.join(__dirname, "public")));
 
-app.set("port", port);
+app.listen(port, () => {
+  console.log("App is running on port " + port);
+});
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -115,7 +117,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(port, () => console.log("Listening on Port", port));
+    // app.listen(port, () => console.log("Listening on Port", port));
   })
   .catch((err) => {
     console.log(err);
