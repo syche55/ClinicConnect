@@ -2,7 +2,7 @@
 
 **ClinicConnect is an application for managing appointments with a clinic.**
 
-Website Link: Click Here!
+**Website Link: [Click Here!](https://clinicconnect-colon3.herokuapp.com/)**
 
 **A quick demo on Youtube:  [Click here]()**
 
