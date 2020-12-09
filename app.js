@@ -17,13 +17,13 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log("App is running on port " + port);
 });
-
+console.log(`${process.env.fromEmail}`);
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
   auth: {
-    user: "kuok65775@gmail.com",
-    pass: "Buzhongyao5",
+    user: `${process.env.fromEmail}`,
+    pass: `${process.env.fromEmailPassword}`,
   },
   tls: {
     rejectUnauthorized: false,
@@ -63,8 +63,8 @@ app.post("/access", (req, res, next) => {
   console.log(content);
 
   var mail = {
-    from: "kuok65775@gmail.com",
-    to: "bshen1110@gmail.com",
+    from: `${process.env.fromEmail}`,
+    to: `${process.env.toEmail}`,
     subject: "CLINICCONNECT new inquiry",
     text: content,
   };

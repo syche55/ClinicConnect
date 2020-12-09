@@ -1,5 +1,8 @@
 {
-    "env": {
-        "MONGO_URL": "mongodb+srv://chen:Lirb14tF2Cw9kasU@cluster0.c6ski.mongodb.net/events-react-dev"
-    }
+  "env": {
+    "MONGO_URL": "mongodb+srv://chen:Lirb14tF2Cw9kasU@cluster0.c6ski.mongodb.net/events-react-dev",
+    "fromEmail": "kuok65775@gmail.com",
+    "fromEmailPassword": "Buzhongyao5",
+    "toEmail": "bshen1110@gmail.com"
+  }
 }
