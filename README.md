@@ -4,7 +4,7 @@
 
 **Website Link: [Click Here!](https://clinicconnect-colon3.herokuapp.com/)**
 
-**A quick demo on Youtube:  [Click here]()**
+
 
 The application enables a patient to manage information about appointments at the clinic, to track current availability of appointments, and to book appointments for a particular department and specific doctor at the clinic. 
 
@@ -78,4 +78,3 @@ Learn more about the insurance the clinic accept. Also direct to insurance offic
 
 **Copyright 2020 © Colon Three**
 
-**Contact Email:**
