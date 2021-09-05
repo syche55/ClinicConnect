@@ -77,6 +77,3 @@ Learn more about the insurance the clinic accept. Also direct to insurance offic
 ## Other Info
 
 **Copyright 2020 © Colon Three**
-
-# ClinicConnect
-# ClinicConnect
